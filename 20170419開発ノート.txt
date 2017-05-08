@@ -1,9 +1,16 @@
+
+
 20170508
 **gitHub にリモートリポジトリつくる**
 
 
 **ローカルとリモートを接続**
 git remote add origin git@github.com:giogiokuma/Test_Proj5.git
+
+****
+
+
+
 
 
 
