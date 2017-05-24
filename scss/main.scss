@@ -1,6 +1,8 @@
 
 @import "bourbon/bourbon"; 
 @import "layout";
+@import "variables"; 
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 /* -------------------------
 >>> Table OF CONTENT: 
@@ -106,7 +108,7 @@ header #cd-logo img{
 }
 
 @include MQ(M) {
-/* layout  */
+/* ========== 外レイアウトA
 
 .cd-container {
     width:1050px;
@@ -128,6 +130,7 @@ header #cd-logo img{
 .side {
     width:10%;      
 }
+ ========== */
 
 /* main nav */
     .main-nav {
@@ -166,12 +169,135 @@ header #cd-logo img{
         @include transform(translateY(0));
     }
 }
-    
+ 
+/*====レイアウトB====*/
+.cd-main-content {
+    position:relative;
+    clear: both;
+}
+
+.main {
+    border:1px solid #fcc;
+    margin-bottom: 10px;
+}
+
+.side {
+    border:1px solid #fea;
+}
+
+.main, .side {
+    padding:2%; 
+}
+/** ===min-width 768px=== **/
+@include MQ(M) {
+  .cd-main-content {
+  display:flex;
+
+  }
+
+  .main {
+  margin: 5% 10px 0 0;
+  flex:2;
+  }
+
+  .side {
+  flex: 1;
+  margin-top:5%;
+  }
+}
+
+
 /* -------------------------
 5.0 Contents
 ---------------------------*/
 
+/*== masonry コンテンツ ===*/
+/*　コンテンツ */
+img, iframe {
+  max-width:100%;
+  height:auto ;
+  display:block; 
 
+}
+
+.masonry {
+  margin : 1.5em 0 ;
+  padding: 0; 
+  -moz-column-gap: 1.5em;
+  -webkit-column-gap: 1.5em ;
+  column-gap: 1.5em ;
+  font-size: .85em;
+}
+
+
+.item {
+  display:inline-block;
+  background:#fff;
+  padding:1.5em ;
+  margin:0 0 1.5em ;
+  width: 100%;
+  @include box-sizing(border-box);
+
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.18);
+  @include border-radius(3px);
+}
+
+.title, .footer {
+  text-align: center; 
+}
+
+.title {
+  font-size: 1.75em;
+  margin:.25em 0; 
+}
+
+.title a {
+  display:inline-block;
+  padding:.75em 1.25em;
+  color:#888;
+  border:2px solid #aaa;
+  margin: .25em 1em 1em;
+  text-decoration:none;
+  @include border-radius(3px);
+}
+.title {
+  color:#666;
+}
+
+.title a:hover {
+  color:#666;
+  border-color:#888;
+}
+
+.share-link,
+.article-link {
+  color:#888;
+}
+
+@media only screen and (min-width: 320px) {
+  .masonry {
+    @include column-count(2);
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .masonry {
+    @include column-count(3);
+  }
+}
+
+@media only screen and (min-width:900px) {
+  .masonry {
+    @include column-count(3);
+  }
+}
+
+@media only screen and (min-width:1200px) {
+  .masonry {
+    @include column-count(4);
+  }
+}
+/*=== /masonry コンテンツ ===*/
 
 /* topへ移動 */
 .arrow-top {

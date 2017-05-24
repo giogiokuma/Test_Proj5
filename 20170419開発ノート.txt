@@ -1,4 +1,13 @@
+20170524
+**bootstrap-sass をインポート**
+20170524
+$npm install node-sass bootstrap-sass
 
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+
+----------
 
 20170508
 **gitHub にリモートリポジトリつくる**
